@@ -7,4 +7,4 @@ func _on_start_pressed() -> void:
 
 
 func _on_options_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/options_menu.tscn")

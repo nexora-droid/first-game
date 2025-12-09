@@ -7,8 +7,4 @@ func _ready() -> void:
 	var hud: Node = $HUD
 	game_manager.connect("score_changed", Callable(hud, "update_score"))
 	
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	
