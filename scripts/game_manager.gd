@@ -1,9 +1,11 @@
 extends Node
 
-var score = 0
-@onready var score_label: Label = $Score
 
+
+
+signal score_changed(new_score)
+var score = 0
 
 func add_point():
 	score += 1
-	score_label.text= "You made it!! Your score: " + str(score) + " coin."
+	emit_signal("score_changed", score)

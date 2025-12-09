@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://p8lscf1t23sd"]
+
+[ext_resource type="Script" uid="uid://c0ula31h80atp" path="res://hud.gd" id="1_oo0fn"]
+[ext_resource type="FontFile" uid="uid://drqr4655a4gcu" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_5ysmq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oo0fn"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_oo0fn")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -246.0
+offset_top = 22.0
+offset_right = -14.0
+offset_bottom = 54.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_5ysmq")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_oo0fn")
+text = "Score: 0"

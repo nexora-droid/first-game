@@ -1,0 +1,116 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbtmmlg42nhcl"]
+
+[ext_resource type="Script" uid="uid://dq32i0aipcrkq" path="res://scripts/death_menu.gd" id="1_ox6ks"]
+[ext_resource type="Texture2D" uid="uid://1p3s30346abq" path="res://images/Screenshot 2025-12-08 at 10.39.52 PM.png" id="2_vqs20"]
+[ext_resource type="FontFile" uid="uid://drqr4655a4gcu" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_20fbl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fd3p8"]
+texture = ExtResource("2_vqs20")
+modulate_color = Color(0.427493, 0.42749307, 0.42749307, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nl2ex"]
+bg_color = Color(0.9764706, 0.6117647, 0.050980393, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ox6ks"]
+bg_color = Color(0.9764706, 0.6117647, 0.050980393, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[node name="DeathMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ox6ks")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fd3p8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -226.5
+offset_top = 65.0
+offset_right = 226.5
+offset_bottom = 196.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Restart" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_fonts/font = ExtResource("3_20fbl")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_nl2ex")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nl2ex")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ox6ks")
+text = "Restart"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_fonts/font = ExtResource("3_20fbl")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_nl2ex")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nl2ex")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ox6ks")
+text = "Exit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -440.0
+offset_top = -180.0
+offset_right = 440.0
+offset_bottom = -116.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 7
+theme_override_constants/shadow_outline_size = 6
+theme_override_fonts/font = ExtResource("3_20fbl")
+theme_override_font_sizes/font_size = 64
+text = "Oh no! You died!"
+
+[connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
