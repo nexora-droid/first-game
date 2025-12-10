@@ -3,7 +3,6 @@ extends Area2D
 
 @onready var timer = $Timer
 func _on_body_entered(body):
-	print("You died!")
 	Engine.time_scale=0.8
 	body.get_node("CollisionShape2D").queue_free()
 	timer.start()

@@ -46,11 +46,15 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_7txom")
 
 [node name="Title" type="Label" parent="."]
-layout_mode = 0
-offset_left = 344.0
-offset_top = 51.0
-offset_right = 768.0
-offset_bottom = 115.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -212.0
+offset_top = 58.0
+offset_right = 212.0
+offset_bottom = 122.0
+grow_horizontal = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 6
 theme_override_constants/shadow_offset_y = 7
@@ -61,10 +65,10 @@ text = "Options"
 
 [node name="Volume Slider" type="HSlider" parent="."]
 layout_mode = 0
-offset_left = 100.0
+offset_left = 217.0
 offset_top = 172.0
-offset_right = 730.0
-offset_bottom = 188.0
+offset_right = 847.0
+offset_bottom = 204.0
 theme_override_constants/grabber_offset = 0
 theme_override_icons/grabber = ExtResource("2_lfjc7")
 theme_override_icons/grabber_highlight = ExtResource("2_lfjc7")
@@ -77,9 +81,9 @@ script = ExtResource("2_hm4m4")
 
 [node name="SFX Slider" type="HSlider" parent="."]
 layout_mode = 0
-offset_left = 103.0
+offset_left = 220.0
 offset_top = 230.0
-offset_right = 733.0
+offset_right = 850.0
 offset_bottom = 262.0
 theme_override_constants/grabber_offset = 0
 theme_override_icons/grabber = ExtResource("2_lfjc7")
@@ -92,9 +96,9 @@ script = ExtResource("6_k61yy")
 
 [node name="Music Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 752.0
+offset_left = 869.0
 offset_top = 170.0
-offset_right = 892.0
+offset_right = 1009.0
 offset_bottom = 202.0
 theme_override_fonts/font = ExtResource("4_3xsyx")
 theme_override_font_sizes/font_size = 32
@@ -102,9 +106,9 @@ text = "Music"
 
 [node name="SFX Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 754.0
+offset_left = 871.0
 offset_top = 226.0
-offset_right = 894.0
+offset_right = 1011.0
 offset_bottom = 258.0
 theme_override_fonts/font = ExtResource("4_3xsyx")
 theme_override_font_sizes/font_size = 32
