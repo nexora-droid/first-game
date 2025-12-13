@@ -8,5 +8,5 @@ signal entered_portal()
 func _ready() -> void:
 	area_2d.connect("body_entered", Callable(self, "_on_area_entered"))
 	
-func _on_area_entered(body):
+func _on_area_entered(_body):
 	emit_signal("entered_portal")

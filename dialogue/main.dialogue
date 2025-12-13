@@ -1,0 +1,9 @@
+~ start
+...: Hi player! I am some Renjiro.
+You: Why are you here?
+Renjiro: I [wait=0.5][speed=0.3]peer into the distance hoping I shall meet my love soon.
+- Who is your love?
+	Renjiro: The name is her.
+- Why don't you look for her?
+- I'm searching for my lost lover too.
+=> END
