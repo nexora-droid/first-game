@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cdie1ibp61cu8"]
 
-[ext_resource type="Script" uid="uid://bpmv40gwq8lge" path="res://heaven_portal.gd" id="1_crj52"]
+[ext_resource type="Script" uid="uid://bpmv40gwq8lge" path="res://scripts/heaven_portal.gd" id="1_crj52"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vwd2p"]
 size = Vector2(30.6875, 40.25)

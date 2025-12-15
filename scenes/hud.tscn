@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://p8lscf1t23sd"]
 
-[ext_resource type="Script" uid="uid://c0ula31h80atp" path="res://hud.gd" id="1_oo0fn"]
+[ext_resource type="Script" uid="uid://c0ula31h80atp" path="res://scripts/hud.gd" id="1_oo0fn"]
 [ext_resource type="FontFile" uid="uid://drqr4655a4gcu" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_5ysmq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oo0fn"]

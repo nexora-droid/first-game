@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://1p3s30346abq" path="res://images/Screenshot 2025-12-08 at 10.39.52 PM.png" id="2_k61yy"]
 [ext_resource type="Texture2D" uid="uid://wqrpfsy1xy8" path="res://images/pixil-frame-0 (2).png" id="2_lfjc7"]
 [ext_resource type="FontFile" uid="uid://cep6xegx7k708" path="res://assets/fonts/PixelOperator8.ttf" id="4_3xsyx"]
-[ext_resource type="Script" uid="uid://dic5ejrl2m1ac" path="res://scenes/sfx_slider.gd" id="6_k61yy"]
+[ext_resource type="Script" uid="uid://dic5ejrl2m1ac" path="res://scripts/sfx_slider.gd" id="6_k61yy"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7txom"]
 texture = ExtResource("2_k61yy")

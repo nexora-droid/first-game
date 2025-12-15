@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://nglkc6vrnmlo"]
+[gd_scene load_steps=13 format=3 uid="uid://nglkc6vrnmlo"]
 
 [ext_resource type="Texture2D" uid="uid://dcbygkt3fbrft" path="res://assets/sprites/IDLE.png" id="1_8dm1u"]
 
@@ -80,18 +80,10 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5ipnd"]
-radius = 8.0
-height = 34.0
-
 [node name="NPC1" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_u2bb1")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.2465352
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 17)
-shape = SubResource("CapsuleShape2D_5ipnd")
+frame_progress = 0.5367029
