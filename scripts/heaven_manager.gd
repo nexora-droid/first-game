@@ -1,11 +1,12 @@
 extends Node
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	print("entered")
 
+@onready var timer: Timer = $Timer
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+signal score_changed(new_score)
+var score = 0
+
+func add_point():
+	score += 1
+	emit_signal("score_changed", score)

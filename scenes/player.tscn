@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b3hjlgmu1lcvb"]
+[gd_scene load_steps=31 format=3 uid="uid://b3hjlgmu1lcvb"]
 
 [ext_resource type="Texture2D" uid="uid://cjsgb2oddnjyw" path="res://assets/sprites/knight.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://vjcslsv21g6e" path="res://scripts/player.gd" id="1_g2els"]
@@ -185,10 +185,58 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_qhqgy"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_g2els"]
 resource_name = "go_to_heaven"
 length = 9.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -204)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.2831855]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dqkch"]
 _data = {
@@ -196,8 +244,10 @@ _data = {
 &"go_to_heaven": SubResource("Animation_g2els")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
+radius = 6.0
+
 [node name="Player" type="CharacterBody2D"]
-rotation = -6.2831855
 collision_layer = 2
 script = ExtResource("1_g2els")
 
@@ -205,12 +255,25 @@ script = ExtResource("1_g2els")
 position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_fjrip")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["player"]]
+[node name="Visual" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visual" groups=["player"]]
 z_index = 2
 sprite_frames = SubResource("SpriteFrames_tuyoq")
 animation = &"cutscene"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual"]
+root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_dqkch")
 }
+
+[node name="Direction" type="Marker2D" parent="."]
+
+[node name="ActionableFinder" type="Area2D" parent="Direction"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/ActionableFinder"]
+position = Vector2(4, 6)
+shape = SubResource("CircleShape2D_g2els")

@@ -3,12 +3,14 @@ extends CharacterBody2D
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var collision_shape_2d: CollisionShape2D = $Direction/ActionableFinder/CollisionShape2D
-@onready var actionable_finder: Area2D = $Direction/ActionableFinder
+@onready var animated_sprite: AnimatedSprite2D = $Visual/AnimatedSprite2D
+@onready var animation_player: AnimationPlayer = $Visual/AnimationPlayer
 @onready var camera_2d: Camera2D = $Camera2D
+@onready var actionable_finder: Area2D = $Direction/ActionableFinder
+@onready var interact_shape := $Direction/ActionableFinder/CollisionShape2D
+@onready var interact_x: float = interact_shape.position.x
 var heaven_portal: Node = null
+@onready var label: Label = $"../Label/Label"
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -21,12 +23,10 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction > 0:
 		animated_sprite.flip_h=false
-		collision_shape_2d.position.x = 5
-		
+		interact_shape.position.x = interact_x
 	elif direction < 0:
 		animated_sprite.flip_h=true
-		collision_shape_2d.position.x = -5
-	
+		interact_shape.position.x = -interact_x
 	if is_on_floor():
 		if direction == 0:
 			animated_sprite.play("default")
@@ -40,11 +40,15 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+	var actionables = actionable_finder.get_overlapping_areas()
+	label.visible = actionables.size() > 0
 
 func _ready() -> void:
 	heaven_portal = get_parent().get_node("HeavenPortal")
 	if heaven_portal:
 		heaven_portal.connect("entered_portal", Callable(self, "_on_portal_entered"))
+	label.visible = false
 
 func _on_portal_entered():
 	print("Entered Teleporter")
@@ -52,8 +56,14 @@ func _on_portal_entered():
 	animated_sprite.stop()
 	animated_sprite.play("cutscene")
 	animation_player.play("go_to_heaven")
-	while animation_player.is_playing():
-		camera_2d.global_position = $Visual.global_position
+	while animation_player.is_playing(): 
+		camera_2d.global_position = $Visual.global_position 
 		await get_tree().process_frame
-	get_tree().create_timer(9)
 	get_tree().change_scene_to_file("res://scenes/heaven.tscn")
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("keyboard_e"):
+		var actionables = actionable_finder.get_overlapping_areas()
+		if actionables.size() > 0:
+			actionables[0].action()
+			return
