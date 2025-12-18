@@ -10,7 +10,9 @@ const JUMP_VELOCITY = -300.0
 @onready var interact_shape := $Direction/ActionableFinder/CollisionShape2D
 @onready var interact_x: float = interact_shape.position.x
 var heaven_portal: Node = null
-@onready var label: Label = $"../Label/Label"
+var options_menu: Node = null
+var is_skip_cutscene: bool = false
+@onready var label: Label = %"Talk Prompt"
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -48,18 +50,22 @@ func _ready() -> void:
 	heaven_portal = get_parent().get_node("HeavenPortal")
 	if heaven_portal:
 		heaven_portal.connect("entered_portal", Callable(self, "_on_portal_entered"))
-	label.visible = false
+	options_menu = OptionsMenu
+	if options_menu:
+		options_menu.connect("toggle_cutscene", Callable(self, "_toggle_cutscene"))
 
 func _on_portal_entered():
 	print("Entered Teleporter")
 	set_physics_process(false)
 	animated_sprite.stop()
-	animated_sprite.play("cutscene")
-	animation_player.play("go_to_heaven")
-	while animation_player.is_playing(): 
-		camera_2d.global_position = $Visual.global_position 
-		await get_tree().process_frame
-	get_tree().change_scene_to_file("res://scenes/heaven.tscn")
+	if is_skip_cutscene == false:
+		animated_sprite.play("cutscene")
+		animation_player.play("go_to_heaven")
+		while animation_player.is_playing(): 
+			camera_2d.global_position = $Visual.global_position 
+			await get_tree().process_frame
+	elif is_skip_cutscene == true:
+		get_tree().change_scene_to_file("res://scenes/heaven.tscn")
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("keyboard_e"):
@@ -67,3 +73,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		if actionables.size() > 0:
 			actionables[0].action()
 			return
+
+func _toggle_cutscene():
+	if is_skip_cutscene == true:
+		is_skip_cutscene = false
+		print("Not skipping cutscene")
+	if is_skip_cutscene == false:
+		is_skip_cutscene = true
+		print("Skipping cutscene")

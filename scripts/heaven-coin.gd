@@ -2,10 +2,10 @@ extends Area2D
 
 
 
-@onready var game_manager: Node = %HeavenManager
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var heaven_manager: Node = %HeavenManager
 
 
 func _on_body_entered(_body):
-	game_manager.add_point()
+	heaven_manager.add_point()
 	animation_player.play('pickup')

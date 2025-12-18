@@ -6,5 +6,3 @@ func _ready() -> void:
 	var game_manager: Node = %GameManager
 	var hud: Node = $HUD
 	game_manager.connect("score_changed", Callable(hud, "update_score"))
-	
-	

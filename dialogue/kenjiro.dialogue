@@ -3,7 +3,10 @@ if State.meet_status == "first":
 	set State.meet_status = "met"
 	=> meeting
 elif State.meet_status == "met":
-	Kenjiro: [speed=0.5]Well, we meet again.
+	if State.adamant_counter >= 2:
+		Kenjiro: I shall not speak to you. YOU have been adamant.
+	else:
+		Kenjiro: [speed=0.5]Well, we meet again.
 	=> meeting2
 => END
 
@@ -65,5 +68,6 @@ Kenjiro: [speed=0.5]Sakura? ... Really? You must be [wait=1] lying.
 You: [speed=0.5]Me? And lying? Never! Sakura is my true love and I wouldn't give her up. Ever.
 Kenjiro: [speed=0.5]But... but... but... she ... she's my love. She told me she would never betray me!
 You: [speed=0.5]What? She told me same thing too!
-Kenjiro: [speed=0.5]Well good luck reaching her - for I am trying the same too.
+%3 Kenjiro: [speed=0.5]That..that's impossible. We have a promise between us. no. No. NO. This is not happening. You will pay for taking my love.
+%2 Kenjiro: [speed=0.5]Well good luck reaching her - for I am trying the same too.
 => END!

@@ -45,6 +45,16 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_7txom")
 
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 280.0
+offset_right = 383.0
+offset_bottom = 303.0
+theme_override_fonts/font = ExtResource("4_3xsyx")
+theme_override_font_sizes/font_size = 32
+text = "Skip Cutscenes"
+
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
@@ -114,12 +124,19 @@ theme_override_fonts/font = ExtResource("4_3xsyx")
 theme_override_font_sizes/font_size = 32
 text = "SFX"
 
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 317.0
+offset_top = 435.0
+offset_right = 357.0
+offset_bottom = 458.0
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 317.0
-offset_top = 391.0
+offset_top = 435.0
 offset_right = 822.0
-offset_bottom = 431.0
+offset_bottom = 475.0
 theme_override_fonts/font = ExtResource("1_ijpji")
 theme_override_font_sizes/font_size = 40
 text = "More to come!!"
@@ -147,4 +164,15 @@ theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_binsn")
 text = "Return"
 
+[node name="CheckBox" type="CheckBox" parent="."]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 272.0
+offset_right = 233.0
+offset_bottom = 296.0
+scale = Vector2(2, 2)
+theme_override_colors/checkbox_checked_color = Color(0, 0.8777428, 0.40565765, 1)
+theme_override_colors/checkbox_unchecked_color = Color(0.87175155, 0, 0.34110847, 1)
+
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="button_down" from="CheckBox" to="." method="_on_check_box_button_down"]
