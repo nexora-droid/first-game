@@ -860,7 +860,6 @@ the abyss...
 Will you find her?"
 
 [node name="HUD" parent="." instance=ExtResource("9_0tnpc")]
-visible = false
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
