@@ -586,7 +586,7 @@ tile_map_data = PackedByteArray("AABxAPX/AQAIAAAAAABhAPX/AQAIAAAAAABxAPb/AQAIAAA
 tile_set = SubResource("TileSet_0tnpc")
 
 [node name="HeavenPortal" parent="." instance=ExtResource("11_kvpfn")]
-position = Vector2(183, 14)
+position = Vector2(2239, -469)
 
 [node name="Coins" type="Node" parent="."]
 

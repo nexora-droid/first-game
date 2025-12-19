@@ -55,12 +55,14 @@ func _ready() -> void:
 
 func _on_portal_entered():
 	print("Entered Teleporter")
-	camera_2d.global_position = $Visual.global_position
+	
 	set_physics_process(false)
 	animated_sprite.stop()
 	animated_sprite.play("cutscene")
 	animation_player.play("go_to_heaven")
-	await get_tree().create_timer(9).timeout
+	while animation_player.is_playing():
+		camera_2d.global_position = $Visual.global_position
+		await get_tree().process_frame
 	get_tree().change_scene_to_file("res://scenes/heaven.tscn")
 
 func _unhandled_input(event: InputEvent) -> void:
