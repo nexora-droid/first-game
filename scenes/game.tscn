@@ -491,7 +491,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1102, 23), Vector2(1272, 25)]
+"values": [Vector2(741, 37), Vector2(741, 202)]
 }
 
 [sub_resource type="Animation" id="Animation_lbhrr"]
@@ -586,7 +586,7 @@ tile_map_data = PackedByteArray("AABxAPX/AQAIAAAAAABhAPX/AQAIAAAAAABxAPb/AQAIAAA
 tile_set = SubResource("TileSet_0tnpc")
 
 [node name="HeavenPortal" parent="." instance=ExtResource("11_kvpfn")]
-position = Vector2(2241, -473)
+position = Vector2(183, 14)
 
 [node name="Coins" type="Node" parent="."]
 
@@ -860,6 +860,7 @@ the abyss...
 Will you find her?"
 
 [node name="HUD" parent="." instance=ExtResource("9_0tnpc")]
+visible = false
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
