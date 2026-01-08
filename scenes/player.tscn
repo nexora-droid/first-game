@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://vjcslsv21g6e" path="res://scripts/player.gd" id="1_g2els"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fjrip"]
-radius = 5.0
+radius = 6.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ni07"]
 atlas = ExtResource("1_3vyb7")

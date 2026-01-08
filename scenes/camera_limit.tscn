@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://sohwwt6homff"]
+
+[ext_resource type="Script" uid="uid://bkhjuidsr4knb" path="res://scripts/camera_limit.gd" id="1_chyl4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4wias"]
+size = Vector2(39, 66)
+
+[node name="CameraLimit" type="Node2D"]
+script = ExtResource("1_chyl4")
+
+[node name="StaticBody2D" type="Area2D" parent="."]
+visibility_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(9.5, 23)
+shape = SubResource("RectangleShape2D_4wias")
+
+[connection signal="body_entered" from="StaticBody2D" to="." method="_on_static_body_2d_body_entered"]

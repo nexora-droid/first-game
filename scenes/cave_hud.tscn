@@ -1,0 +1,215 @@
+[gd_scene load_steps=25 format=3 uid="uid://dqk5dlff1plby"]
+
+[ext_resource type="Script" uid="uid://bwh0t3qigpplm" path="res://scripts/cave_hud.gd" id="1_2q10x"]
+[ext_resource type="Script" uid="uid://cgpham23kjlg3" path="res://scripts/drawing.gd" id="2_pu43f"]
+[ext_resource type="FontFile" uid="uid://drqr4655a4gcu" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_u55kt"]
+[ext_resource type="Texture2D" uid="uid://c1okkhbgrk7e7" path="res://images/pixil-frame-0 (6).png" id="4_3okyl"]
+[ext_resource type="FontFile" uid="uid://cncjbragd1s6o" path="res://assets/fonts/Itim-Regular.ttf" id="4_6fd1r"]
+[ext_resource type="Texture2D" uid="uid://cac6icxn7k2ol" path="res://images/pixil-frame-0 (7).png" id="5_b8hy2"]
+[ext_resource type="Texture2D" uid="uid://8aavu8g8jcan" path="res://images/pixil-frame-0 (4).png" id="6_ss16u"]
+[ext_resource type="Texture2D" uid="uid://dbgnfkgop10dt" path="res://images/Screenshot 2026-01-04 at 9.39.14 PM.png" id="8_sr4kh"]
+[ext_resource type="Texture2D" uid="uid://ypa18w44dgwf" path="res://images/Screenshot 2026-01-04 at 9.42.15 PM.png" id="9_ogjhw"]
+[ext_resource type="Texture2D" uid="uid://08afkyyrl6x4" path="res://images/Screenshot 2026-01-04 at 9.46.24 PM.png" id="10_ul117"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ul117"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3okyl"]
+bg_color = Color(0.99999994, 0.2481252, 0.15814269, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8hy2"]
+bg_color = Color(0.83188486, 0.09580081, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ss16u"]
+bg_color = Color(0.83188486, 0.09580081, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sr4kh"]
+bg_color = Color(0.83188486, 0.09580081, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogjhw"]
+bg_color = Color(0.16148224, 0.758409, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xixlf"]
+texture = ExtResource("5_b8hy2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_44u0w"]
+texture = ExtResource("6_ss16u")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8g5li"]
+texture = ExtResource("6_ss16u")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7673p"]
+texture = ExtResource("6_ss16u")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xixlf"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ul117"]
+texture = ExtResource("8_sr4kh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fj00o"]
+texture = ExtResource("9_ogjhw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kp2y2"]
+texture = ExtResource("10_ul117")
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_2q10x")
+
+[node name="Casting" type="Panel" parent="."]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 401.0
+grow_vertical = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ul117")
+script = ExtResource("2_pu43f")
+
+[node name="Line2D" type="Line2D" parent="Casting"]
+
+[node name="Button" type="Button" parent="Casting"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -54.0
+offset_right = 154.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_u55kt")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_3okyl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b8hy2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ss16u")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sr4kh")
+text = "Reset"
+
+[node name="Button2" type="Button" parent="Casting"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -154.0
+offset_top = -54.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_u55kt")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_ogjhw")
+text = "Cast"
+
+[node name="PixilFrame0(6)" type="Sprite2D" parent="Casting"]
+position = Vector2(200.2, 74.25)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("4_3okyl")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 403.0
+offset_top = 71.0
+offset_right = 498.0
+offset_bottom = 166.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_xixlf")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_44u0w")
+theme_override_styles/hover = SubResource("StyleBoxTexture_8g5li")
+theme_override_styles/focus = SubResource("StyleBoxTexture_7673p")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 398.0
+offset_right = 1150.0
+offset_bottom = 162.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xixlf")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 752.0
+offset_bottom = 161.0
+mouse_filter = 0
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Panel/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer/HBoxContainer/Control"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 10.0
+offset_right = 190.0
+offset_bottom = 48.0
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/HBoxContainer/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_6fd1r")
+theme_override_font_sizes/font_size = 31
+text = "Immunity"
+
+[node name="Panel" type="Panel" parent="Panel/ScrollContainer/HBoxContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_ul117")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/ScrollContainer/HBoxContainer/Control"]
+layout_mode = 0
+offset_left = 229.0
+offset_top = 10.0
+offset_right = 360.0
+offset_bottom = 152.0
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/HBoxContainer/Control/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_6fd1r")
+theme_override_font_sizes/font_size = 31
+text = "Speed Boost"
+
+[node name="Panel" type="Panel" parent="Panel/ScrollContainer/HBoxContainer/Control/VBoxContainer2"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_fj00o")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Panel/ScrollContainer/HBoxContainer/Control"]
+layout_mode = 0
+offset_left = 437.0
+offset_top = 11.0
+offset_right = 673.0
+offset_bottom = 153.0
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/HBoxContainer/Control/VBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_6fd1r")
+theme_override_font_sizes/font_size = 31
+text = "Insta-kill Nearest"
+
+[node name="Panel" type="Panel" parent="Panel/ScrollContainer/HBoxContainer/Control/VBoxContainer3"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_kp2y2")
+
+[connection signal="pressed" from="Casting/Button" to="Casting" method="_on_button_pressed"]
+[connection signal="pressed" from="Casting/Button2" to="Casting" method="_on_button_2_pressed"]

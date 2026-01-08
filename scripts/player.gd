@@ -10,6 +10,7 @@ const JUMP_VELOCITY = -300.0
 @onready var interact_shape := $Direction/ActionableFinder/CollisionShape2D
 @onready var interact_x: float = interact_shape.position.x
 var heaven_portal: Node = null
+@onready var camera_limit: Node2D = $"../CameraLimit"
 var options_menu: Node = null
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -48,10 +49,11 @@ func _physics_process(delta: float) -> void:
 		if label:
 			label.visible = actionables.size() > 0
 func _ready() -> void:
+	camera_2d.limit_bottom = 125
 	heaven_portal = get_parent().get_node("HeavenPortal")
 	if heaven_portal:
 		heaven_portal.connect("entered_portal", Callable(self, "_on_portal_entered"))
-
+	camera_limit.connect("change_limit", Callable(self, "_change_camera_limit"))
 
 func _on_portal_entered():
 	print("Entered Teleporter")
@@ -71,3 +73,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if actionables.size() > 0:
 			actionables[0].action()
 			return
+
+func _change_camera_limit()-> void:
+	print("fire")
+	camera_2d.limit_bottom = 95
