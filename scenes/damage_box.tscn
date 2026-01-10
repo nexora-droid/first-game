@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bldpuj435tm0v"]
+
+[ext_resource type="Script" uid="uid://bmlb50fv05jr6" path="res://scripts/damage_box.gd" id="1_y30gr"]
+
+[node name="DamageBox" type="Area2D" groups=["DamageBox"]]
+collision_mask = 2
+script = ExtResource("1_y30gr")

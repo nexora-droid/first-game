@@ -9,4 +9,5 @@ func _ready() -> void:
 	area_2d.connect("body_entered", Callable(self, "_on_area_entered"))
 	
 func _on_area_entered(_body):
+	print("Entered Teleporter")
 	emit_signal("entered_portal")

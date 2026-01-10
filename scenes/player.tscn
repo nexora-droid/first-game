@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b3hjlgmu1lcvb"]
+[gd_scene load_steps=35 format=3 uid="uid://b3hjlgmu1lcvb"]
 
 [ext_resource type="Texture2D" uid="uid://cjsgb2oddnjyw" path="res://assets/sprites/knight.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://vjcslsv21g6e" path="res://scripts/player.gd" id="1_g2els"]
@@ -9,6 +9,22 @@ radius = 6.0
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ni07"]
 atlas = ExtResource("1_3vyb7")
 region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l71n6"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke2ow"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(32, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujl30"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31cv2"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(96, 224, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -103,6 +119,23 @@ animations = [{
 "loop": true,
 "name": &"cutscene",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_l71n6")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_ke2ow")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_ujl30")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_31cv2")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -247,7 +280,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 radius = 6.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_g2els")
 
@@ -260,7 +293,7 @@ shape = SubResource("CircleShape2D_fjrip")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visual" groups=["player"]]
 z_index = 2
 sprite_frames = SubResource("SpriteFrames_tuyoq")
-animation = &"cutscene"
+animation = &"death"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Visual"]
 root_node = NodePath("../..")
