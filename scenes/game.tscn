@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://c66f2tiagg1sr"]
+[gd_scene load_steps=32 format=4 uid="uid://c66f2tiagg1sr"]
 
 [ext_resource type="Script" uid="uid://dhu4wkhlypflx" path="res://scripts/game_manager.gd" id="1_gee14"]
 [ext_resource type="PackedScene" uid="uid://b3hjlgmu1lcvb" path="res://scenes/player.tscn" id="1_uwrxv"]
@@ -7,10 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://b30k2nwyn4k18" path="res://scenes/platforms.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://p6g0qhyvgk36" path="res://scenes/coin.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://btvetxn3a0nfn" path="res://scenes/killzone.tscn" id="5_iywne"]
-[ext_resource type="PackedScene" uid="uid://60srmp8f1guv" path="res://scenes/slime.tscn" id="6_p57ef"]
 [ext_resource type="FontFile" uid="uid://drqr4655a4gcu" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://p8lscf1t23sd" path="res://scenes/hud.tscn" id="9_0tnpc"]
+[ext_resource type="Script" uid="uid://0k25jjpsoipc" path="res://scripts/slime.gd" id="10_dinhu"]
 [ext_resource type="PackedScene" uid="uid://cdie1ibp61cu8" path="res://scenes/heaven_portal.tscn" id="11_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://cq65cnodn6c4x" path="res://assets/sprites/slime_purple.png" id="11_kvuet"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kvpfn"]
 texture = ExtResource("2_yqjtg")
@@ -477,6 +478,44 @@ texture = ExtResource("2_yqjtg")
 [sub_resource type="TileSet" id="TileSet_0tnpc"]
 sources/1 = SubResource("TileSetAtlasSource_gee14")
 
+[sub_resource type="Animation" id="Animation_dinhu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(741, 37)]
+}
+
+[sub_resource type="Animation" id="Animation_kvpfn"]
+resource_name = "vertical"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(741, 37), Vector2(741, 208)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kvuet"]
+_data = {
+&"RESET": SubResource("Animation_dinhu"),
+&"vertical": SubResource("Animation_kvpfn")
+}
+
 [sub_resource type="Animation" id="Animation_iywne"]
 resource_name = "MOVE"
 length = 3.0
@@ -533,6 +572,45 @@ _data = {
 &"move": SubResource("Animation_lnu2h")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjw23"]
+atlas = ExtResource("11_kvuet")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2npkn"]
+atlas = ExtResource("11_kvuet")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd6lc"]
+atlas = ExtResource("11_kvuet")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gstla"]
+atlas = ExtResource("11_kvuet")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v5wyi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjw23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2npkn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd6lc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gstla")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0l8pv"]
+size = Vector2(10, 13)
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_vtaks")
 
@@ -571,7 +649,7 @@ wait_time = 0.55
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 visibility_layer = 2
-position = Vector2(88, 48)
+position = Vector2(89, 46)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, 8)
@@ -586,7 +664,7 @@ tile_map_data = PackedByteArray("AABxAPX/AQAIAAAAAABhAPX/AQAIAAAAAABxAPb/AQAIAAA
 tile_set = SubResource("TileSet_0tnpc")
 
 [node name="HeavenPortal" parent="." instance=ExtResource("11_kvpfn")]
-position = Vector2(2239, -469)
+position = Vector2(2233, -468)
 
 [node name="Coins" type="Node" parent="."]
 
@@ -777,9 +855,9 @@ position = Vector2(741, 37)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Moving Platform 1"]
 libraries = {
-&"": SubResource("AnimationLibrary_iywne")
+&"": SubResource("AnimationLibrary_kvuet")
 }
-autoplay = "MOVE"
+autoplay = "vertical"
 
 [node name="Moving Platform 2" parent="Platforms" instance=ExtResource("3_lnu2h")]
 position = Vector2(741, 37)
@@ -788,7 +866,7 @@ position = Vector2(741, 37)
 libraries = {
 &"": SubResource("AnimationLibrary_iywne")
 }
-autoplay = "MOVE"
+autoplay = "move"
 
 [node name="Killzone" parent="." instance=ExtResource("5_iywne")]
 position = Vector2(982, 323)
@@ -797,9 +875,29 @@ position = Vector2(982, 323)
 position = Vector2(-921, -143)
 polygon = PackedVector2Array(-231, 3, 643, 4, 644, 150, 645, 186, 1225, 180, 1223, 102, 1278, 101, 1281, 184, 1276, 97, 1276, -19, 1310, -21, 1308, -145, 1342, -170, 1857, -179, 2213, -179, 2207, -319, 2200, -468, 2245, -466, 2245, -630, 2302, -630, 2297, -178, 2302, -97, 1344, -92, 1342, 233, 638, 232, 528, 232, 526, 59, -231, 56)
 
-[node name="Slime" parent="." instance=ExtResource("6_p57ef")]
+[node name="Slime" type="Node2D" parent="."]
 top_level = true
 position = Vector2(1592, -140)
+script = ExtResource("10_dinhu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Slime"]
+sprite_frames = SubResource("SpriteFrames_v5wyi")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Killzone" parent="Slime" instance=ExtResource("5_iywne")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slime/Killzone"]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_0l8pv")
+
+[node name="RayCastRight" type="RayCast2D" parent="Slime"]
+position = Vector2(0, 6)
+target_position = Vector2(11, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="Slime"]
+position = Vector2(0, 6)
+target_position = Vector2(-11, 0)
 
 [node name="Labels" type="Node" parent="."]
 
@@ -833,7 +931,7 @@ offset_bottom = 31.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_u5sy4")
 theme_override_font_sizes/font_size = 8
-text = "Tip: Use Spacebar!"
+text = "Tip: Use W or Up Arrow!!"
 
 [node name="StoryLabel1" type="Label" parent="Labels"]
 offset_left = 761.0
@@ -878,4 +976,4 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_timer_timeout"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

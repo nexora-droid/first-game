@@ -101,13 +101,13 @@ signal shape_arrow
 func cast_spell(shape: String, confidence: String) -> void:
 	var confidence_float := float(confidence)
 	confidence_float = round_decimal(confidence_float, 1)
-	if shape == "Star":
+	if shape == "Star" and confidence_float > 0.5:
 		print("Shape is a star")
 		emit_signal("shape_star")
 	elif shape == "Bad Star":
 		print("Shape is bad star")
 		emit_signal("shape_badstar")
-	elif shape == "Triangle":
+	elif shape == "Triangle" and confidence_float > 0.6:
 		print("Shape is a triangle")
 		emit_signal("shape_triangle")
 	elif shape == "Bad Triangle":

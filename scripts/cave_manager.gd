@@ -40,17 +40,9 @@
 extends Node
 
 
-@onready var timer: Timer = $Timer
-
-
-signal score_changed(new_score)
-var score = 0
 var levelsave_path := "user://level.save"
 func _ready() -> void:
 	var file = FileAccess.open(levelsave_path, FileAccess.WRITE)
-	var json_body = JSON.stringify({"level": "normal"})
-	file.store_line(json_body)
+	var json_body = JSON.stringify({"level": "cave"})
+	file.store_string(json_body)
 	file.close()
-func add_point():
-	score += 1
-	emit_signal("score_changed", score)

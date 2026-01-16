@@ -10,7 +10,6 @@ func _input(_event: InputEvent) -> void:
 		if isVisible == true:
 			emit_signal("panel_visible")
 	visible = isVisible
-
 signal shape_arrow
 signal shape_badstar
 signal shape_badtriangle
@@ -26,9 +25,16 @@ func _ready() -> void:
 	casting.connect("shape_other", Callable(self, "on_shape_other"))
 	casting.connect("shape_star", Callable(self, "on_shape_star"))
 	casting.connect("shape_triangle", Callable(self, "on_shape_triangle"))
-
+	$Immunity.hide()
+	$Speedboost.hide()
 func on_shape_arrow():
 	emit_signal("shape_arrow")
+	$Speedboost.show()
+	await get_tree().create_timer(7).timeout
+	for i in range(6):
+		$Speedboost.visible = !$Speedboost.visible
+		await get_tree().create_timer(0.5).timeout
+	$Speedboost.hide()
 	
 func on_shape_badstar():
 	emit_signal("shape_badstar")
@@ -41,6 +47,12 @@ func on_shape_other():
 
 func on_shape_star():
 	emit_signal("shape_star")
+	$Immunity.show()
+	await get_tree().create_timer(3).timeout
+	for i in range(4):
+		$Immunity.visible = !$Immunity.visible
+		await get_tree().create_timer(0.5).timeout
+	$Immunity.hide()
 	
 func on_shape_triangle():
 	emit_signal("shape_triangle")

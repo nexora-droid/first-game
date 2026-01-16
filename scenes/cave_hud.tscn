@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dqk5dlff1plby"]
+[gd_scene load_steps=34 format=3 uid="uid://dqk5dlff1plby"]
 
 [ext_resource type="Script" uid="uid://bwh0t3qigpplm" path="res://scripts/cave_hud.gd" id="1_2q10x"]
 [ext_resource type="Script" uid="uid://cgpham23kjlg3" path="res://scripts/drawing.gd" id="2_pu43f"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dbgnfkgop10dt" path="res://images/Screenshot 2026-01-04 at 9.39.14 PM.png" id="8_sr4kh"]
 [ext_resource type="Texture2D" uid="uid://ypa18w44dgwf" path="res://images/Screenshot 2026-01-04 at 9.42.15 PM.png" id="9_ogjhw"]
 [ext_resource type="Texture2D" uid="uid://08afkyyrl6x4" path="res://images/Screenshot 2026-01-04 at 9.46.24 PM.png" id="10_ul117"]
+[ext_resource type="Texture2D" uid="uid://dlummdfyqs0iy" path="res://pixil-frame-0 (8).png" id="11_xixlf"]
+[ext_resource type="Texture2D" uid="uid://bvqd2wsuhjalx" path="res://images/speedboost.png" id="12_44u0w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ul117"]
 bg_color = Color(0, 0, 0, 1)
@@ -276,6 +278,16 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_44u0w")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8g5li")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7673p")
 theme_override_styles/focus = SubResource("StyleBoxFlat_fj00o")
+
+[node name="Immunity" type="Sprite2D" parent="."]
+position = Vector2(1073, 574)
+scale = Vector2(4.765624, 4.765624)
+texture = ExtResource("11_xixlf")
+
+[node name="Speedboost" type="Sprite2D" parent="."]
+position = Vector2(1074, 434)
+scale = Vector2(0.17922087, 0.17922086)
+texture = ExtResource("12_44u0w")
 
 [connection signal="pressed" from="Casting/Button" to="Casting" method="_on_button_pressed"]
 [connection signal="pressed" from="Casting/Button2" to="Casting" method="_on_button_2_pressed"]

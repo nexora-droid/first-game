@@ -10,5 +10,5 @@ func _ready() -> void:
 
 func _on_player_near() -> void:
 	$AnimationPlayer.play("attack")
-	await get_tree().create_timer(3.1).timeout
+	await get_tree().create_timer(5).timeout
 	$".".queue_free()
