@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://c66f2tiagg1sr"]
+[gd_scene load_steps=34 format=4 uid="uid://c66f2tiagg1sr"]
 
 [ext_resource type="Script" uid="uid://dhu4wkhlypflx" path="res://scripts/game_manager.gd" id="1_gee14"]
 [ext_resource type="PackedScene" uid="uid://b3hjlgmu1lcvb" path="res://scenes/player.tscn" id="1_uwrxv"]
@@ -12,6 +12,8 @@
 [ext_resource type="Script" uid="uid://0k25jjpsoipc" path="res://scripts/slime.gd" id="10_dinhu"]
 [ext_resource type="PackedScene" uid="uid://cdie1ibp61cu8" path="res://scenes/heaven_portal.tscn" id="11_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://cq65cnodn6c4x" path="res://assets/sprites/slime_purple.png" id="11_kvuet"]
+[ext_resource type="AudioStream" uid="uid://btvem4wrb7r4i" path="res://assets/sounds/level1.mp3" id="13_kvuet"]
+[ext_resource type="Script" uid="uid://cocnydhc2aks3" path="res://scripts/level1player.gd" id="14_trtic"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kvpfn"]
 texture = ExtResource("2_yqjtg")
@@ -650,6 +652,7 @@ wait_time = 0.55
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 visibility_layer = 2
 position = Vector2(89, 46)
+max_health = null
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, 8)
@@ -977,3 +980,6 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_kvuet")
+bus = &"SFX"
+script = ExtResource("14_trtic")

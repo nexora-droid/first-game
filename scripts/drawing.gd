@@ -1,10 +1,10 @@
 extends Panel
-const drawing_area := Rect2(Vector2(0, 115), Vector2(308, 480))
+const drawing_area := Rect2(Vector2(0, 160), Vector2(400, 425))
 var points = []
 var last_pos: Vector2 = Vector2.INF
 var drawing:= false
 var http_request : HTTPRequest = null
-var url := "https://godot-image-model.onrender.com/predict"
+var url := "https://godot-image-model-8c51.onrender.com/predict"
 var classname: String 
 var probability: String
 func _ready() -> void:
@@ -47,13 +47,9 @@ func _on_button_pressed() -> void:
 	reset_panel()
 
 func _get_drawing_img() -> Image:
-	var viewport = get_viewport()
-	var full_img = viewport.get_texture().get_image()
-	full_img.flip_y()
-	var global_rect = Rect2(
-		global_position + drawing_area.position,
-		drawing_area.size
-	)
+	var viewport = get_viewport() 
+	var full_img = viewport.get_texture().get_image() 
+	var global_rect = Rect2( global_position + drawing_area.position, drawing_area.size ) 
 	return full_img.get_region(global_rect)
 
 func prepare_for_model(img: Image) -> Image:
@@ -92,6 +88,7 @@ func _on_request_completed(result: int, response_code: int, headers: PackedStrin
 func _on_button_2_pressed() -> void:
 	var img = prepare_for_model(_get_drawing_img())
 	send_to_server(img)
+
 signal shape_star
 signal shape_badstar
 signal shape_triangle
@@ -100,7 +97,7 @@ signal shape_other
 signal shape_arrow
 func cast_spell(shape: String, confidence: String) -> void:
 	var confidence_float := float(confidence)
-	confidence_float = round_decimal(confidence_float, 1)
+	confidence_float = round_decimal(confidence_float, 2)
 	if shape == "Star" and confidence_float > 0.5:
 		print("Shape is a star")
 		emit_signal("shape_star")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://d0srtvgtwfaio"]
+[gd_scene load_steps=50 format=4 uid="uid://d0srtvgtwfaio"]
 
 [ext_resource type="Texture2D" uid="uid://c5051rb2irj3g" path="res://assets/sprites/tilemap.png" id="1_3ianm"]
 [ext_resource type="Script" uid="uid://bjyyely6muim6" path="res://scripts/heaven.gd" id="1_uxtox"]
@@ -19,6 +19,8 @@
 [ext_resource type="Script" uid="uid://0k25jjpsoipc" path="res://scripts/slime.gd" id="17_bvr31"]
 [ext_resource type="Texture2D" uid="uid://cq65cnodn6c4x" path="res://assets/sprites/slime_purple.png" id="18_52u5p"]
 [ext_resource type="PackedScene" uid="uid://rrsxgr17135e" path="res://scenes/cave_pass.tscn" id="18_a1aab"]
+[ext_resource type="AudioStream" uid="uid://cned2dbq1yn53" path="res://assets/sounds/level2.mp3" id="20_bvr31"]
+[ext_resource type="Script" uid="uid://c6e1rt46dsav0" path="res://scripts/level2player.gd" id="21_52u5p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_puekj"]
 texture = ExtResource("2_chesl")
@@ -1438,3 +1440,8 @@ target_position = Vector2(-11, 0)
 
 [node name="CavePass" parent="." instance=ExtResource("18_a1aab")]
 position = Vector2(-162, 1140)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_bvr31")
+bus = &"SFX"
+script = ExtResource("21_52u5p")

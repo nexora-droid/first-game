@@ -13,9 +13,9 @@ func _physics_process(delta: float) -> void:
 		if area.is_in_group("fireball"):
 			triggered = true
 			Engine.time_scale = 0.3 
-			DialogueManager.show_dialogue_balloon_scene(load("res://dialogue/balloon.tscn"), load("res://dialogue/tutorial.dialogue"))
 			damage_20.emit()
 			speed_reduce()
+			DialogueManager.show_dialogue_balloon_scene(load("res://dialogue/balloon.tscn"), load("res://dialogue/tutorial.dialogue"))
 			 
 func speed_reduce() -> void:
 	Engine.time_scale = 0.5

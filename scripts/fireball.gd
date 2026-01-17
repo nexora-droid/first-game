@@ -9,6 +9,9 @@ func _ready() -> void:
 		$"../CameraLimit".connect("change_limit", Callable(self, "_on_player_near"))
 
 func _on_player_near() -> void:
+	if State.fireball_fired == true:
+		return
 	$AnimationPlayer.play("attack")
 	await get_tree().create_timer(5).timeout
 	$".".queue_free()
+	State.fireball_fired = true

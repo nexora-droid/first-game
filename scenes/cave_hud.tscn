@@ -16,6 +16,58 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ul117"]
 bg_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xixlf"]
+texture = ExtResource("5_b8hy2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_44u0w"]
+texture = ExtResource("6_ss16u")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8g5li"]
+texture = ExtResource("6_ss16u")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7673p"]
+texture = ExtResource("6_ss16u")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xixlf"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ul117"]
+texture = ExtResource("8_sr4kh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fj00o"]
+texture = ExtResource("9_ogjhw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kp2y2"]
+texture = ExtResource("10_ul117")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_44u0w"]
+bg_color = Color(0.80460835, 0, 0.1919854, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8g5li"]
+bg_color = Color(0.999867, 0.08286383, 0.26085487, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7673p"]
+bg_color = Color(0.999867, 0.08286383, 0.26085487, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fj00o"]
+bg_color = Color(0.999867, 0.08286383, 0.26085487, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3okyl"]
 bg_color = Color(0.99999994, 0.2481252, 0.15814269, 1)
 corner_radius_top_left = 10
@@ -72,58 +124,6 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xixlf"]
-texture = ExtResource("5_b8hy2")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_44u0w"]
-texture = ExtResource("6_ss16u")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8g5li"]
-texture = ExtResource("6_ss16u")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7673p"]
-texture = ExtResource("6_ss16u")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xixlf"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ul117"]
-texture = ExtResource("8_sr4kh")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fj00o"]
-texture = ExtResource("9_ogjhw")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kp2y2"]
-texture = ExtResource("10_ul117")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_44u0w"]
-bg_color = Color(0.80460835, 0, 0.1919854, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8g5li"]
-bg_color = Color(0.999867, 0.08286383, 0.26085487, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7673p"]
-bg_color = Color(0.999867, 0.08286383, 0.26085487, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fj00o"]
-bg_color = Color(0.999867, 0.08286383, 0.26085487, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_2q10x")
 
@@ -137,42 +137,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ul117")
 script = ExtResource("2_pu43f")
 
 [node name="Line2D" type="Line2D" parent="Casting"]
-
-[node name="Button" type="Button" parent="Casting"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -54.0
-offset_right = 201.0
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("3_u55kt")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_3okyl")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_b8hy2")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ss16u")
-theme_override_styles/focus = SubResource("StyleBoxFlat_sr4kh")
-text = "Reset"
-
-[node name="Button2" type="Button" parent="Casting"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -200.0
-offset_top = -54.0
-grow_horizontal = 0
-grow_vertical = 0
-focus_mode = 0
-theme_override_fonts/font = ExtResource("3_u55kt")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_ogjhw")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_kp2y2")
-theme_override_styles/hover = SubResource("StyleBoxFlat_q5d5m")
-theme_override_styles/focus = SubResource("StyleBoxFlat_emlix")
-text = "Cast"
 
 [node name="PixilFrame0(6)" type="Sprite2D" parent="Casting"]
 position = Vector2(200.2, 74.25)
@@ -274,6 +238,7 @@ offset_left = -39.0
 offset_right = -2.0
 offset_bottom = 37.0
 grow_horizontal = 0
+focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_44u0w")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8g5li")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7673p")
@@ -289,7 +254,43 @@ position = Vector2(1074, 434)
 scale = Vector2(0.17922087, 0.17922086)
 texture = ExtResource("12_44u0w")
 
-[connection signal="pressed" from="Casting/Button" to="Casting" method="_on_button_pressed"]
-[connection signal="pressed" from="Casting/Button2" to="Casting" method="_on_button_2_pressed"]
+[node name="Button" type="Button" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -54.0
+offset_right = 201.0
+grow_vertical = 0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_u55kt")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_3okyl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b8hy2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ss16u")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sr4kh")
+text = "Reset"
+
+[node name="Button2" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -951.0
+offset_top = -54.0
+offset_right = -751.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_u55kt")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_ogjhw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kp2y2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q5d5m")
+theme_override_styles/focus = SubResource("StyleBoxFlat_emlix")
+text = "Cast"
+
 [connection signal="pressed" from="SpellBook" to="Casting" method="_on_spell_book_pressed"]
 [connection signal="pressed" from="CloseButton" to="Casting" method="_on_close_button_pressed"]
+[connection signal="pressed" from="Button" to="Casting" method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="Casting" method="_on_button_2_pressed"]
